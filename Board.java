@@ -9,41 +9,36 @@ import java.awt.Image;
 
 
 public class Board extends JPanel implements ActionListener {
-	private final int TICK = 100;
-	private Timer timer;
-	private int tickCounter = 0;
+  private final int TICK = 100;
 
-	private Image heroImage;
+  private Timer timer;
+  private int tickCounter = 0;
 
-	public Board() {
-		loadImages();
-		timer = new Timer(TICK, this);
-		timer.start();
-	}
+  private Image heroImage;
+  private Level level;
 
-	@Override
-	public void actionPerformed(ActionEvent event) {
-		this.tickCounter += 1;
-		repaint();
-	}
+  public Board() {
+    this.level = new Level("./data/level/1.txt");
+    timer = new Timer(TICK, this);
+    timer.start();
+  }
 
-	@Override
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		drawTimer(g);
-		drawHero(g);
-	}
+  @Override
+  public void actionPerformed(ActionEvent event) {
+    this.tickCounter += 1;
+    repaint();
+  }
 
-	private void drawHero(Graphics g) {
-		g.drawImage(heroImage, 100, 100, this);
-	}
+  @Override
+  public void paintComponent(Graphics g) {
+    super.paintComponent(g);
 
-	private void loadImages() {
-		ImageIcon icon = new ImageIcon("hero.png");
-    heroImage = icon.getImage();
-	}
-
-	private void drawTimer(Graphics g) {
-		g.drawString("Timer: " + Integer.toString(this.tickCounter), 25, 25);
-	}
+    for (int x = 0; x < this.level.cells.length; ++x) {
+      for (int y = 0; y < this.level.cells[x].length; ++y) {
+        if (this.level.cells[x][y] != null) {
+          this.level.cells[x][y].render(g);
+        }
+      }
+    }
+  }
 }
