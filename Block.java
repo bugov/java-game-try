@@ -6,6 +6,7 @@ public class Block extends Cell {
 
   public Block(int x, int y) {
     super(x, y);
+    isEmpty = false;
     ImageIcon icon = new ImageIcon(this.imageFile);
     this.image = icon.getImage();
   }

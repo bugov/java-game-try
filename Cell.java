@@ -10,8 +10,10 @@ public class Cell implements ImageObserver {
 
   protected boolean isImageUpdate = false;
   protected int x, y;
+  public boolean isEmpty;
 
   public Cell(int x, int y) {
+    isEmpty = true;
     ImageIcon icon = new ImageIcon(this.imageFile);
     this.image = icon.getImage();
     this.isImageUpdate = true;

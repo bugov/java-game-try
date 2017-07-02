@@ -23,7 +23,7 @@ public class Level {
               break;
             case '@':
               this.cells[x][y] = new Cell(x, y);
-              this.hero = new Hero(x, y);
+              this.hero = new Hero(x, y, this);
               break;
             default:
               this.cells[x][y] = new Cell(x, y);
@@ -35,5 +35,9 @@ public class Level {
       e.printStackTrace();
       System.exit(1);
     }
+  }
+
+  public boolean isEmpty(int x, int y) {
+    return this.cells[x][y].isEmpty;
   }
 }
