@@ -9,4 +9,11 @@ public class Hero extends Block {
     ImageIcon icon = new ImageIcon(this.imageFile);
     this.image = icon.getImage();
   }
+
+  public boolean move(int delta_x, int delta_y) {
+    this.x += delta_x;
+    this.y += delta_y;
+
+    return true;
+  }
 }

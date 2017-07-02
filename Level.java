@@ -7,6 +7,7 @@ public class Level {
   public final int X_BLOCKS = 20;
   public final int Y_BLOCKS = 15;
   public Cell[][] cells = new Cell[X_BLOCKS][Y_BLOCKS];
+  public Hero hero;
 
   public Level(String filePath) {
     Cell cell;
@@ -18,15 +19,15 @@ public class Level {
         for (int x = 0; x < line.length(); ++x) {
           switch (line.charAt(x)) {
             case '#':
-              cell = new Block(x, y);
+              this.cells[x][y] = new Block(x, y);
               break;
             case '@':
-              cell = new Hero(x, y);
+              this.cells[x][y] = new Cell(x, y);
+              this.hero = new Hero(x, y);
               break;
             default:
-              cell = new Cell(x, y);
+              this.cells[x][y] = new Cell(x, y);
           }
-          this.cells[x][y] = cell;
         }
         ++y;
       }

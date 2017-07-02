@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -14,8 +15,7 @@ public class Board extends JPanel implements ActionListener {
   private Timer timer;
   private int tickCounter = 0;
 
-  private Image heroImage;
-  private Level level;
+  public Level level;
 
   public Board() {
     this.level = new Level("./data/level/1.txt");
@@ -26,6 +26,7 @@ public class Board extends JPanel implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent event) {
     this.tickCounter += 1;
+
     repaint();
   }
 
@@ -37,6 +38,7 @@ public class Board extends JPanel implements ActionListener {
       for (int y = 0; y < this.level.cells[x].length; ++y) {
         if (this.level.cells[x][y] != null) {
           this.level.cells[x][y].render(g);
+          this.level.hero.render(g);
         }
       }
     }
