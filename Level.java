@@ -7,7 +7,7 @@ public class Level {
   public final int X_BLOCKS = 20;
   public final int Y_BLOCKS = 15;
   public Cell[][] cells = new Cell[X_BLOCKS][Y_BLOCKS];
-  public Hero hero;
+  private Hero hero;
 
   public Level(String filePath) {
     Cell cell;
@@ -39,5 +39,9 @@ public class Level {
 
   public boolean isEmpty(int x, int y) {
     return this.cells[x][y].isEmpty;
+  }
+
+  public Hero getHero() {
+    return hero;
   }
 }
