@@ -1,3 +1,5 @@
+package dungndrug.fight;
+
 import javax.swing.ImageIcon;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -5,6 +7,8 @@ import java.awt.image.ImageObserver;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import static java.lang.Math.sqrt;
+
+import dungndrug.level.Cell;
 
 
 public class Bolt implements ImageObserver {

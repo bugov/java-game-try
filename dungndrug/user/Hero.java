@@ -1,6 +1,12 @@
+package dungndrug.user;
+
 import javax.swing.ImageIcon;
 import java.awt.Image;
 import java.awt.Graphics;
+
+import dungndrug.level.Level;
+import dungndrug.fight.Bolt;
+import dungndrug.level.Block;
 
 public class Hero extends Block {
   private String imageFile = "data/image/mage.png";

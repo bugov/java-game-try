@@ -1,7 +1,11 @@
+package dungndrug.level;
+
 import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.io.IOException;
 
+import dungndrug.user.Hero;
+import dungndrug.level.Cell;
 
 public class Level {
   public final int X_BLOCKS = 20;

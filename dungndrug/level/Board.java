@@ -1,3 +1,5 @@
+package dungndrug.level;
+
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.ImageIcon;
@@ -10,6 +12,9 @@ import java.awt.event.KeyEvent;
 
 import java.awt.Graphics;
 import java.awt.Image;
+
+import dungndrug.level.Level;
+import dungndrug.user.Hero;
 
 
 public class Board extends JPanel implements ActionListener {

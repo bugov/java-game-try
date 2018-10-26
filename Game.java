@@ -3,6 +3,9 @@ import java.awt.EventQueue;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import dungndrug.level.Board;
+
+
 public class Game extends JFrame {
   private Board board;
 
