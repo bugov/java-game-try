@@ -94,5 +94,6 @@ public class Board extends JPanel implements ActionListener {
         hero.move(0, 1);
         break;
     }
+    System.out.println("User pos: " + hero.getX() + hero.getY());
   }
 }

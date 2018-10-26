@@ -23,6 +23,14 @@ public class Cell implements ImageObserver {
     this.y = y;
   }
 
+  public int getX() {
+    return this.x;
+  }
+
+  public int getY() {
+    return this.y;
+  }
+
   public void render(Graphics g) {
     g.drawImage(this.image, SIZE * this.x, SIZE * this.y, this);
   }

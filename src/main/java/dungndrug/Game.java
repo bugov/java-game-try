@@ -1,3 +1,5 @@
+package dungndrug;
+
 import javax.swing.JFrame;
 import java.awt.EventQueue;
 import java.awt.event.KeyAdapter;
