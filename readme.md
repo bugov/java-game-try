@@ -2,4 +2,4 @@
 
 Just trying to make dnd-like game with java.
 
-!(preview)[img/preview.png]
+![preview](img/preview.png)
