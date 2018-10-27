@@ -58,7 +58,6 @@ public class Board extends JPanel implements ActionListener {
         }
       }
     }
-    hero.render(g);
   }
 
   class MouseActionAdapter extends MouseAdapter {
