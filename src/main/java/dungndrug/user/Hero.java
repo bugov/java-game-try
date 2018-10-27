@@ -6,36 +6,18 @@ import java.awt.Graphics;
 
 import dungndrug.level.Level;
 import dungndrug.fight.Bolt;
-import dungndrug.level.Block;
+import dungndrug.creep.Skeleton;
 
-public class Hero extends Block {
+public class Hero extends Skeleton {
   private String imageFile = "data/image/mage.png";
-  private Level mapLevel;
   private Bolt bolt;
   private boolean boltFired = false;
 
   public Hero(int x, int y, Level level) {
-    super(x, y);
+    super(x, y, level);
     isEmpty = false;
-    this.mapLevel = level;
     ImageIcon icon = new ImageIcon(this.imageFile);
     this.image = icon.getImage();
-  }
-
-  public boolean move(int delta_x, int delta_y) {
-    if (! this.mapLevel.isEmpty(x + delta_x, y + delta_y)) {
-      return false;
-    }
-
-    x += delta_x;
-    y += delta_y;
-
-    return true;
-  }
-
-  public void hit(int x, int y) {
-    bolt = new Bolt(this.x, this.y, x, y);
-    boltFired = true;
   }
 
   @Override
@@ -46,5 +28,10 @@ public class Hero extends Block {
       bolt.render(g);
       boltFired = bolt.isStillFlying();
     }
+  }
+
+  public void hit(int x, int y) {
+    bolt = new Bolt(this.x, this.y, x, y);
+    boltFired = true;
   }
 }

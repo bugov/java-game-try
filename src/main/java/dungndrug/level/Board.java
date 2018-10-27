@@ -51,10 +51,10 @@ public class Board extends JPanel implements ActionListener {
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
 
-    for (int x = 0; x < level.cells.length; ++x) {
-      for (int y = 0; y < level.cells[x].length; ++y) {
-        if (level.cells[x][y] != null) {
-          level.cells[x][y].render(g);
+    for (int x = 0; x < level.cells.size(); ++x) {
+      for (int y = 0; y < level.cells.get(x).size(); ++y) {
+        for (int i = 0; i < level.cells.get(x).get(y).size(); ++i) {
+          level.cells.get(x).get(y).get(i).render(g);
         }
       }
     }
@@ -94,6 +94,18 @@ public class Board extends JPanel implements ActionListener {
         hero.move(0, 1);
         break;
     }
-    System.out.println("User pos: " + hero.getX() + hero.getY());
+
+    // Debug
+    System.out.println("Pos: " + hero.getX() + ":" + hero.getY());
+    for (int x = 0; x < level.cells.size(); ++x) {
+      for (int y = 0; y < level.cells.get(x).size(); ++y) {
+        if (! level.isEmpty(x, y)) {
+          System.out.print("X");
+        } else {
+          System.out.print(" ");
+        }
+      }
+      System.out.println("");
+    }
   }
 }
