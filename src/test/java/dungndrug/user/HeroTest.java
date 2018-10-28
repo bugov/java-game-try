@@ -21,15 +21,27 @@ public class HeroTest {
 
   @Test
   public void testMove() {
-      Level level = new Level("./data/level/1.txt");
-      Hero hero = level.getHero();
+    Level level = new Level("./data/level/1.txt");
+    Hero hero = level.getHero();
 
-      hero.move(0, -1);
-      assertEquals(2, hero.getX());
-      assertEquals(1, hero.getY());
+    hero.move(0, -1);
+    assertEquals(2, hero.getX());
+    assertEquals(1, hero.getY());
 
+    hero.move(1, 0);
+    assertEquals(3, hero.getX());
+    assertEquals(1, hero.getY());
+
+    for (int i = 0; i < 10; ++i) {
       hero.move(1, 0);
-      assertEquals(3, hero.getX());
-      assertEquals(1, hero.getY());
+    }
+    assertEquals(4, hero.getX());  // Wall
+    assertEquals(1, hero.getY());
+
+    for (int i = 0; i < 10; ++i) {
+      hero.move(0, 1);
+    }
+    assertEquals(4, hero.getX());
+    assertEquals(8, hero.getY());  // Wall
   }
 }
