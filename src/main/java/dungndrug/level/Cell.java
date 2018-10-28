@@ -15,7 +15,7 @@ public class Cell implements ImageObserver {
   public boolean isEmpty;
 
   public Cell(int x, int y) {
-    isEmpty = true;
+    this.isEmpty = true;
     ImageIcon icon = new ImageIcon(this.imageFile);
     this.image = icon.getImage();
     this.isImageUpdate = true;

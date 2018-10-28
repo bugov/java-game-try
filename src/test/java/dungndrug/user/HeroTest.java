@@ -28,17 +28,20 @@ public class HeroTest {
     assertEquals(2, hero.getX());
     assertEquals(1, hero.getY());
 
+    hero.beforeTurn();
     hero.move(1, 0);
     assertEquals(3, hero.getX());
     assertEquals(1, hero.getY());
 
     for (int i = 0; i < 10; ++i) {
+      hero.beforeTurn();
       hero.move(1, 0);
     }
     assertEquals(4, hero.getX());  // Wall
     assertEquals(1, hero.getY());
 
     for (int i = 0; i < 10; ++i) {
+      hero.beforeTurn();
       hero.move(0, 1);
     }
     assertEquals(4, hero.getX());

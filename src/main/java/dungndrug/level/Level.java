@@ -34,7 +34,9 @@ public class Level {
               cellStack.add(new Block(x, y));
               break;
             case 's':
-              cellStack.add(new Skeleton(x, y, this));
+              Skeleton skel = new Skeleton(x, y, this);
+              cellStack.add(skel);
+              creeps.add(skel);
               break;
             case '@':
               this.hero = new Hero(x, y, this);
@@ -71,12 +73,14 @@ public class Level {
 
   public void moveCell(Cell cell, int toX, int toY) {
     List fromCell = this.cells.get(cell.getY()).get(cell.getX());
+
     for (int i = 0; i < fromCell.size(); ++i) {
       if (fromCell.get(i) == cell) {
         fromCell.remove(i);
         break;
       }
     }
+
     this.cells.get(toX).get(toY).add(cell);
   }
 }

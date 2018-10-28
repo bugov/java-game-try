@@ -15,6 +15,7 @@ import java.awt.Image;
 
 import dungndrug.level.Level;
 import dungndrug.user.Hero;
+import dungndrug.creep.CreepInterface;
 
 
 public class Board extends JPanel implements ActionListener {
@@ -79,19 +80,29 @@ public class Board extends JPanel implements ActionListener {
     }
 
     keyPressed = false;
-    switch(e.getKeyCode()) {
-      case KeyEvent.VK_LEFT:
-        hero.move(-1, 0);
-        break;
-      case KeyEvent.VK_RIGHT:
-        hero.move(1, 0);
-        break;
-      case KeyEvent.VK_UP:
-        hero.move(0, -1);
-        break;
-      case KeyEvent.VK_DOWN:
-        hero.move(0, 1);
-        break;
+    int keyCode = e.getKeyCode();
+
+    if (keyCode == KeyEvent.VK_SPACE) {
+      System.out.println("Next turn");
+      this.creepTurn();
+      this.beforeTurn();
+    }
+
+    if (hero.getSpeed() > 0) {
+      switch(keyCode) {
+        case KeyEvent.VK_LEFT:
+          hero.move(-1, 0);
+          break;
+        case KeyEvent.VK_RIGHT:
+          hero.move(1, 0);
+          break;
+        case KeyEvent.VK_UP:
+          hero.move(0, -1);
+          break;
+        case KeyEvent.VK_DOWN:
+          hero.move(0, 1);
+          break;
+      }
     }
 
     // Debug
@@ -105,6 +116,19 @@ public class Board extends JPanel implements ActionListener {
         }
       }
       System.out.println("");
+    }
+  }
+
+  public void creepTurn() {
+    for (CreepInterface creep : level.creeps) {
+      creep.getStrategy().turn();
+    }
+  }
+
+  public void beforeTurn() {
+    hero.beforeTurn();
+    for (CreepInterface creep : level.creeps) {
+      creep.beforeTurn();
     }
   }
 }
